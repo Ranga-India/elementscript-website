@@ -126,7 +126,7 @@ function parseCommand(commandStr) {
 function renderBlock(props) {
     // We use `rem` for scalable web units.
     // 1rem = 16px. A base size of 2rem = 32px.
-    const baseSizeRem = 2;
+    const baseSizeRem = 1;
     const finalSize = props.size * baseSizeRem;
 
     const square = document.createElement('div');
@@ -233,21 +233,22 @@ function runCode() {
 runButton.addEventListener('click', runCode);
 clearButton.addEventListener('click', () => {
     outputPanel.innerHTML = '';
-    // editor.value = '';
+    editor.value = '';
 });
 
 // Add a default example to the editor
-editor.value = `# block adds a block. 
+editor.value = `# block adds a block.
+# size-2 makes the block bigger. 
 # color-blue makes block blue.
 # space-4 gives 4 spaces.
 # repeat-6 repeats the block 6 times
 # end takes you to next line
                     
-block.color-blue space-4 block.color-blue space-2 block.color-red.repeat-3 end
-block.color-blue space-4 block.color-blue space-6 block.color-red end
-block.color-blue.repeat-3 space-6 block.color-red end
-block.color-blue space-4 block.color-blue space-6 block.color-red end
-block.color-blue space-4 block.color-blue space-2 block.color-red.repeat-3 end
+block.color-blue space-2 block.color-blue space-2 block.color-red.repeat-3 end
+block.color-blue space-2 block.color-blue space-4 block.color-red end
+block.color-blue.repeat-3 space-4 block.color-red end
+block.color-blue space-2 block.color-blue space-4 block.color-red end
+block.color-blue space-2 block.color-blue space-2 block.color-red.repeat-3 end
 
 `;
 
